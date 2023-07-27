@@ -1,0 +1,16 @@
+apiVersion: carto.run/v1alpha1
+kind: Workload
+metadata:
+  name: app-with-opensource-base-image
+  labels:
+    apps.tanzu.vmware.com/workload-type: web
+    app.kubernetes.io/part-of: app-with-opensource-base-image
+spec:
+  params:
+    - name: dockerfile
+      value: ./Dockerfile
+    - name: docker_build_context
+      value: .
+  source:
+    git:
+      url: https://github.com/carlosonunez-vmw/tap-examples-dockerfile-vac
